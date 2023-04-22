@@ -1,0 +1,56 @@
+// Information
+//
+// Base:
+//   This folder contains the basic styles and resets for the project.
+//     _reset.scss: Resets browser default styles.
+//     _typography.scss: Contains base typography styles.
+//
+// Components:
+//  This folder stores reusable UI components.
+//    _buttons.scss: Styles for buttons.
+//    _forms.scss: Styles for form elements.
+//    _cards.scss: Styles for cards or content blocks.
+//    _modals.scss: Styles for modals or popups.
+//
+// Layout:
+//  This folder holds styles related to the overall layout of the website.
+//    _grid.scss: Defines the grid system.
+//    _header.scss: Contains styles for the header/navigation.
+//    _footer.scss: Contains styles for the footer.
+//    _sidebar.scss: Contains styles for any sidebars.
+//
+// Pages:
+//  This folder contains page-specific styles.
+//    _home.scss: Styles specific to the home page.
+//    _about.scss: Styles specific to the about page.
+//    _contact.scss: Styles specific to the contact page.
+//
+// Utilities:
+//  This folder has helper classes and utility styles.
+//    _variables.scss: Contains global variables (colors, fonts, breakpoints, etc.).
+//    _mixins.scss: Defines reusable mixins.
+//    _functions.scss: Holds SASS functions.
+//    _helpers.scss: Contains helper classes and utility styles.
+//
+// Vendors:
+//  This folder stores third-party libraries and frameworks.
+//    _bootstrap.scss: Import Bootstrap or other CSS frameworks.
+//    _font-awesome.scss: Import Font Awesome or other icon libraries.
+//
+// Main.scss: This is the root SASS file, which imports all other partials.
+
+
+// Base
+@import "base/reset";
+@import "base/typography";
+
+// Components
+
+// Layout
+@import "global";
+
+// Pages
+
+// Utilities
+
+// Vendors

@@ -1,0 +1,49 @@
+// Import variables
+@import '../utilities/variables'
+
+// Font imports
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap')
+
+html
+  font-size: $font-size-base
+
+body
+  font-family: $font-primary
+  font-size: $font-size-base // 16px
+  line-height: $line-height-base
+  color: #333
+
+h1, h2, h3, h4, h5, h6
+  font-family: $font-secondary
+  font-weight: 700
+  line-height: $line-height-heading
+  margin-top: 0
+  margin-bottom: 1rem
+
+// Font sizes for headings using loop
+@for $i from 1 through 6
+  $font-size: $font-size-base * (1 + 0.125 * (7 - $i))
+  $heading: 'h#{$i}'
+
+  #{$heading}
+    font-size: $font-size
+
+p
+  margin-bottom: 1rem
+
+a
+  color: #007bff
+  text-decoration: none
+  &:hover
+    color: #0056b3
+    text-decoration: underline
+
+strong
+  font-weight: bold
+
+em
+  font-style: italic
+
+small
+  font-size: 0.875em
