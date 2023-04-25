@@ -1,0 +1,155 @@
+// Define variables
+$bg-color: #0d0d1c;
+$white: white;
+$transition-time: 500ms;
+$opacity-transition: opacity $transition-time ease;
+$bg-size-transition: background-size $transition-time ease;
+$bg-position-transition: background-position $transition-time ease;
+
+// Define a mixin for transitions
+@mixin transition($property, $duration, $timing-function) {
+  transition: $property $duration $timing-function;
+}
+
+#menu[data-active-index="0"] > #menu-background-pattern {
+  background-position: 0 -100%;
+}
+
+#menu[data-active-index="1"] > #menu-background-pattern {
+  background-position: 0 100%;
+}
+
+#menu[data-active-index="2"] > #menu-background-pattern {
+  background-position: 0 200%;
+}
+
+#menu[data-active-index="3"] > #menu-background-pattern {
+  background-position: 0 400%;
+}
+
+#menu[data-active-index="0"] > #menu-background-image {
+  background-position: center 45%;
+}
+
+#menu[data-active-index="1"] > #menu-background-image {
+  background-position: center 50%;
+}
+
+#menu[data-active-index="2"] > #menu-background-image {
+  background-position: center 60%;
+}
+
+#menu[data-active-index="3"] > #menu-background-image {
+  background-position: center 65%;
+}
+
+body {
+  background-color: $bg-color;
+  margin: 0;
+}
+
+#menu {
+  align-items: center;
+  display: flex;
+  height: 90vh;
+  width: 100vw;
+
+  &-items {
+    margin-left: clamp(4rem, 20vw, 48rem);
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+      & ~ #menu-background-pattern {
+        @include transition($bg-size-transition, $transition-time, ease);
+        @include transition($bg-position-transition, $transition-time, ease);
+        background-size: clamp(20vw ,40%, 70%);
+        opacity: 20%;
+      }
+
+      & ~ #menu-background-image {
+        transition: ($opacity-transition,
+        background-size $transition-time ease,
+        background-position $transition-time ease);
+        background-size: 100vmax;
+        opacity: 5%;
+      }
+
+      > .menu-item {
+        @include transition($opacity-transition, $transition-time, ease);
+        opacity: 0.3;
+
+        &:hover {
+          opacity: 1;
+          transition: ($transition-time * 1.5);
+        }
+      }
+    }
+  }
+
+  &-background {
+    &-pattern, &-image {
+      @include transition($opacity-transition, $transition-time, ease);
+      @include transition($bg-size-transition, $transition-time, ease);
+      @include transition($bg-position-transition, $transition-time, ease);
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100% !important;
+      z-index: 0;
+      transition: ($transition-time * .765);
+    }
+
+    &-pattern {
+      background-image: url("http://localhost:3000/32444.svg");
+      background-repeat: repeat-y;
+      background-size: clamp(20vmin ,30%, 50%);
+      z-index: 1;
+      transition: ($transition-time * 1.5);
+      opacity: 8%;
+      width: 50%;
+    }
+
+    &-image {
+      background-image: url("https://indie-gamer.pl/wp-content/uploads/2022/10/pixel-art-jak-zaczac-1-e1668726868411-1400x794.jpg");
+      background-position: center 40%;
+      background-size: 110vmax;
+      opacity: 10%;
+      width: 100%;
+    }
+  }
+}
+
+.menu-item {
+  color: $white;
+  cursor: pointer;
+  display: block;
+  font-family: 'Ibarra Real Nova', serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0;
+  text-decoration: none;
+  @include transition(opacity, $transition-time, ease);
+}
+
+.page-title-container {
+  width: 100%;
+  text-align: center;
+  padding: 30px 0px 20px 0px;
+  background-color: #010910;
+}
+
+.page-title {
+  color: white;
+}
+
+.navigation {
+  width: 100%;
+  text-align: center;
+  padding: 30px 0px 20px 0px;
+  background-color: #03101c;
+
+  ul, li {
+    display: inline;
+  }
+}
